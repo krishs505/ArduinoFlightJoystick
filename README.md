@@ -25,7 +25,7 @@ The Arduino reads joystick position and button input, sends the data over serial
 * USB cable
 * 3D-printed enclosure and joystick (designed in SOLIDWORKS)
 
-## Software
+## Configuration
 
 ### Arduino
 
@@ -40,6 +40,23 @@ pip install pyserial vgamepad
 ```
 
 You'll also need the ViGEmBus driver, which `vgamepad` uses to create a virtual Xbox controller. This can be found [here]([url](https://github.com/nefarius/ViGEmBus/releases)).
+
+## Configuration
+
+If your Arduino appears on a different serial port, change:
+
+```python
+serial.Serial('COM5', 115200)
+```
+
+to the appropriate COM port for your system.
+
+If your joystick axes are reversed or rotated, modify the axis mapping in `main.py`. For this specific design, the joystick is typically rotate 90 degrees, so I have mapped y Arduino values to x Xbox values and vice versa.
+
+```python
+x_xbox = map_range(y, ...)
+y_xbox = map_range(x, ...)
+```
 
 ## How It Works
 
@@ -62,31 +79,14 @@ X, Y, Button
    * Updates the virtual Xbox controller in real time
    * Maps the joystick push button to the Xbox left thumbstick click
 
-## Configuration
-
-If your Arduino appears on a different serial port, change:
-
-```python
-serial.Serial('COM5', 115200)
-```
-
-to the appropriate COM port for your system.
-
-If your joystick axes are reversed or rotated, modify the axis mapping in `main.py`. For this specific design, the joystick is typically rotate 90 degrees, so I have mapped y Arduino values to x Xbox values and vice versa.
-
-```python
-x_xbox = map_range(y, ...)
-y_xbox = map_range(x, ...)
-```
-
 ## Project Structure
 
 ```
 .
 ├── joystick.ino      # Arduino firmware
 ├── main.py           # Python virtual controller interface
-├── CAD/              # SOLIDWORKS files (optional)
-├── STL/              # Printable models (optional)
+├── CAD/              # SOLIDWORKS files
+├── STL/              # Printable models
 └── README.md
 ```
 
