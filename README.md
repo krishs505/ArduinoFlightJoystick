@@ -4,10 +4,16 @@ A custom 3D-printed joystick designed in **SOLIDWORKS** that functions as an **X
 
 The Arduino reads joystick position and button input, sends the data over serial, and a Python script converts those values into inputs for a virtual Xbox controller. This allows the controller to be used with any game / flight simulator that supports Xbox controllers.
 
-## Demo
-<img width="500" height="667" alt="image" src="https://github.com/user-attachments/assets/6c219db8-b591-4d8a-9db5-efaf9a7b84d6" /> <img width="500" height="667" alt="image" src="https://github.com/user-attachments/assets/28247654-a956-484b-865b-ec27cef4f27f" />
-<img width="500" height="667" alt="image" src="https://github.com/user-attachments/assets/c2b38662-3feb-43cd-a9f9-865ce631ed0f" />
-<img width="667" height="500" alt="image" src="https://github.com/user-attachments/assets/192efc89-ec68-46d6-b6ac-885ea2034aab" />
+<table>
+  <tr>
+    <td><img src="images/exterior.jpg" width="300"></td>
+    <td><img src="images/exterior_exploded.jpg" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="images/interior.jpg" width="300"></td>
+    <td><img src="images/demo.jpg" width="300"></td>
+  </tr>
+</table>
 
 ## Features
 
@@ -79,6 +85,39 @@ X, Y, Button
    * Updates the virtual Xbox controller in real time
    * Maps the joystick push button to the Xbox left thumbstick click
 
+## Design
+The joystick enclosure and handle were designed in SOLIDWORKS with manufacturing tolerances in mind to ensure a reliable fit after 3D printing. The enclosure includes approximately 3-5 millimeters of clearance around the Arduino, joystick module, and lid to simplify assembly and accommodate printer dimensional variation. In contrast, the interface between the printed joystick and the Arduino joystick shaft was designed with a tighter tolerance (approximately 0.3 mm) to create a secure friction fit without requiring adhesives or additional fasteners.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="images/joystick_top.png" height="500">
+      <br>
+      <em>Top View</em>
+    </td>
+    <td align="center">
+      <img src="images/joystick_bottom.png" height="500">
+      <br>
+      <em>Bottom View</em>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="images/case.png" height="500">
+      <br>
+      <em>Case</em>
+    </td>
+    <td align="center">
+      <img src="images/lid.png" height="500">
+      <br>
+      <em>Lid</em>
+    </td>
+  </tr>
+</table>
+
 ## Project Structure
 
 ```
@@ -86,7 +125,8 @@ X, Y, Button
 ├── joystick.ino      # Arduino firmware
 ├── main.py           # Python virtual controller interface
 ├── CAD/              # SOLIDWORKS files
-├── STL/              # Printable models
+├── STL/              # Printable model files
+├── images/           # Design images (for README)
 └── README.md
 ```
 
