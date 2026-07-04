@@ -1,8 +1,6 @@
 # ArduinoFlightJoystick
 
-A custom 3D-printed joystick designed in **SOLIDWORKS** that functions as an **Xbox 360 controller** using Arduino, Python, and a virtual gamepad driver.
-
-The Arduino reads joystick position and button input, sends the data over serial, and a Python script converts those values into inputs for a virtual Xbox controller. This allows the controller to be used with any game / flight simulator that supports Xbox controllers.
+A custom 3D-printed joystick designed in **SOLIDWORKS** that functions as an **Xbox 360 controller** using Arduino, Python, and a virtual gamepad driver. The Arduino reads joystick position and button input, sends the data over serial, and a Python script converts those values into inputs for a virtual Xbox controller. This allows the controller to be used with any game / flight simulator that supports Xbox controllers.
 
 <table>
   <tr>
@@ -46,8 +44,6 @@ pip install pyserial vgamepad
 ```
 
 You'll also need the ViGEmBus driver, which `vgamepad` uses to create a virtual Xbox controller. This can be found [here]([url](https://github.com/nefarius/ViGEmBus/releases)).
-
-## Configuration
 
 If your Arduino appears on a different serial port, change:
 
